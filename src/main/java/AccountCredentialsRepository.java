@@ -6,32 +6,32 @@ public class AccountCredentialsRepository {
     private Map<String, AccountCredentials> accountcredentials = new HashMap<>();
     private int nextRegistrationNumber = 0;
 
-    public String createAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer, String postcode, String accountnaam, String password, String emailadres){
+    public String createAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer,
+                                       String postcode, String accountnaam, String password, String emailadres)throws AccountAlreadyExistException{
 
-        if (controleForEmailadresAlreadyExist(emailadres) == false){
+        if (emailadresAlreadyExists(emailadres)){
             System.out.println("Kies een ander username + emailadres");
+            throw new AccountAlreadyExistException(emailadres);
         }else {
-
             String registrationNumber = String.valueOf(getNextRegistrationNumber());
-            AccountCredentials user = new AccountCredentials(registrationNumber, voornaam, achternaam, straatnaam, huisnummer, postcode, accountnaam, password, emailadres);
+            AccountCredentials user = new AccountCredentials(voornaam, achternaam, straatnaam, huisnummer, postcode, accountnaam, password, emailadres);
             this.accountcredentials.put(emailadres, user);
             return registrationNumber;
         }
-        return null;
     }
 
-    private boolean controleForEmailadresAlreadyExist(String emailadresControle) {
-        if(accountcredentials.size() > 0) {
+    private boolean emailadresAlreadyExists(String emailadresControle) {
+       // if(accountcredentials.size() > 0) {
 //            System.out.println("Hoeveel zit er in hashmap: " + accountcredentials.size());
 //            System.out.println("welke email n de get: " + emailadresControle);
             AccountCredentials alreadyExitAccount = accountcredentials.get(emailadresControle);
 
             if (alreadyExitAccount != null) {
                 System.out.println("Username en emailadres zijn al bekend in ons systeem");
-                return false;
+                return true;
             }
-        }
-        return true;
+       // }
+        return false;
     }
 
     public AccountCredentials getAccountForUser(String emailadresControle){
