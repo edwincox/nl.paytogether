@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 
 public class GetAccount extends HttpServlet {
 
-    public AccountCredentialsRepository accountCredentialsRepository;
     public AccountCredentials accountCredentials;
 
     // HttpServletRequest to read the HTTP header infromation.
@@ -25,9 +24,14 @@ public class GetAccount extends HttpServlet {
                 "transitional//en\">\n";
 
         // Gevens ophalen door emaladres
+        PayToGetherApplication makeuser = new PayToGetherApplication();
+        String emailtijdelijk = request.getParameter("emailadres");
+        AccountCredentials object = makeuser.getAccountForUser(emailtijdelijk);
 
-        AccountCredentials s = new AccountCredentials();
-        s.getAchternaam();
+
+        String parm1 = object.getAchternaam();
+//        PayToGetherApplication makeuser = new PayToGetherApplication();
+//        AccountCredentials objectbinnen = makeuser.getAccountForUser(request.getParameter("emailadres"));
 
 
 
@@ -44,6 +48,8 @@ public class GetAccount extends HttpServlet {
                 + "<br> username: " + request.getParameter("username")
                 + "<br> passwoord: " + request.getParameter("passwoord")
                 + "<br> emailadres: " + request.getParameter("emailadres")
+                + "<br> emailadres 2: " + parm1
+                + "<br> emailadres 3: " + object.getAchternaam()
                 + "</body></html>");
     }
 }

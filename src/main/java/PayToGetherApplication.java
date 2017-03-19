@@ -20,6 +20,9 @@ public class PayToGetherApplication {
 
 
             // uit gegevens halen
+
+            // gebruik deze url =
+            //   http://192.168.0.71:8181/naamartifactId-1.0-SNAPSHOT/GetAccount?emailadres=edje_coxje%40hotmail.com
             AccountCredentials gegevens = account.getAccountForUser(emailadres);
             System.out.println("Wat komt er uit : " + gegevens.getAchternaam() );
 
@@ -48,8 +51,8 @@ public class PayToGetherApplication {
     public AccountCredentials getAccountForUser(String emailadres){
         AccountCredentials gegevens = account.getAccountForUser(emailadres);
 
-        account.getAccountForUser(emailadres);
-        return new AccountCredentials();
+        //account.getAccountForUser(emailadres);
+        return gegevens;
     }
 
 }
