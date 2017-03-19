@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4">
+    <!--
+    De naam tussen http://localhost:8181/ deze naam /servlet-name
+    -->
+    <display-name>displayname web.xml cox</display-name>
+
+    <servlet>
+        <servlet-name>servlet</servlet-name>
+        <servlet-class>DisplayHeader</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet</servlet-name>
+        <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
+
+<!--
+    1) servlet-name = Here you give the servlet a name van de class
+    2) servlet-class = package name no package class name + class name
+-->
+    <servlet>
+        <servlet-name>GetContent</servlet-name>
+        <servlet-class>GetContent</servlet-class>
+    </servlet>
+
+<!--
+    1) take one of the servlet  mapping servlet
+    2) url pattern = this is the path
+    This is done in the <servlet-mapping> element.
+-->
+    <servlet-mapping>
+        <servlet-name>GetContent</servlet-name>
+        <url-pattern>/GetContent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetAccount</servlet-name>
+        <servlet-class>GetAccount</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAccount</servlet-name>
+        <url-pattern>/GetAccount</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>HelloForm</servlet-name>
+        <servlet-class>HelloForm</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloForm</servlet-name>
+        <url-pattern>/HelloForm</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
