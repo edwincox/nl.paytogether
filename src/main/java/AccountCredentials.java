@@ -19,4 +19,12 @@ public class AccountCredentials {
         this.password = password;
         this.emailadres = emailadres;
     }
+
+    public AccountCredentials() {
+
+    }
+
+    public String getAchternaam() {
+        return achternaam;
+    }
 }

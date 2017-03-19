@@ -16,7 +16,7 @@ public class AccountCredentialsRepository {
             String registrationNumber = String.valueOf(getNextRegistrationNumber());
             AccountCredentials user = new AccountCredentials(voornaam, achternaam, straatnaam, huisnummer, postcode, accountnaam, password, emailadres);
             this.accountcredentials.put(emailadres, user);
-            return registrationNumber;
+            return emailadres;
         }
     }
 
