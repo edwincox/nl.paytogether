@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 // Extend HttpServlet class
-public class GetContent extends HttpServlet {
+public class AddUser extends HttpServlet {
 
     // HttpServletRequest to read the HTTP header infromation.
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,7 +39,6 @@ public class GetContent extends HttpServlet {
         } catch (AccountAlreadyExistException e) {
             e.printStackTrace();
         }
-
 
         out.println(docType
                 + "<html>\n"

@@ -19,8 +19,8 @@
     2) servlet-class = package name no package class name + class name
 -->
     <servlet>
-        <servlet-name>GetContent</servlet-name>
-        <servlet-class>GetContent</servlet-class>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>AddUser</servlet-class>
     </servlet>
 
 <!--
@@ -29,8 +29,8 @@
     This is done in the <servlet-mapping> element.
 -->
     <servlet-mapping>
-        <servlet-name>GetContent</servlet-name>
-        <url-pattern>/GetContent</url-pattern>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/AddUser</url-pattern>
     </servlet-mapping>
 
     <servlet>

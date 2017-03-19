@@ -21,9 +21,6 @@ public class AccountCredentialsRepository {
     }
 
     private boolean emailadresAlreadyExists(String emailadresControle) {
-       // if(accountcredentials.size() > 0) {
-//            System.out.println("Hoeveel zit er in hashmap: " + accountcredentials.size());
-//            System.out.println("welke email n de get: " + emailadresControle);
             AccountCredentials alreadyExitAccount = accountcredentials.get(emailadresControle);
 
             if (alreadyExitAccount != null) {

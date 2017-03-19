@@ -23,33 +23,29 @@ public class GetAccount extends HttpServlet {
         String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " +
                 "transitional//en\">\n";
 
+        // Nodige voor verficatie om welke user het gaat
+        String emailtijdelijk = request.getParameter("emailadres");
+
         // Gevens ophalen door emaladres
         PayToGetherApplication makeuser = new PayToGetherApplication();
-        String emailtijdelijk = request.getParameter("emailadres");
         AccountCredentials object = makeuser.getAccountForUser(emailtijdelijk);
 
-
-        String parm1 = object.getAchternaam();
-//        PayToGetherApplication makeuser = new PayToGetherApplication();
-//        AccountCredentials objectbinnen = makeuser.getAccountForUser(request.getParameter("emailadres"));
-
-
+        // http://192.168.0.71:8181/naamartifactId-1.0-SNAPSHOT/GetAccount?emailadres=edje_coxje%40hotmail.com
+        //String parm1 = object.getAchternaam();
 
         out.println(docType
                 + "<html>\n"
                 + "<head><title>" + title + "</title></head>\n"
                 + "<body bgcolor=\"#f0f0f0\">\n"
                 + "Hier onder worden de gegevens weergeven: <br>"
-                + "<br> Voornaam: " + request.getParameter("voornaam")
-                + "<br> Achternaam: " +request.getParameter("achternaam")
-                + "<br> Straatnaam: " + request.getParameter("straatnaam")
-                + "<br> huisnummer: " + request.getParameter("huisnummer")
-                + "<br> postcode: " + request.getParameter("postcode")
-                + "<br> username: " + request.getParameter("username")
-                + "<br> passwoord: " + request.getParameter("passwoord")
-                + "<br> emailadres: " + request.getParameter("emailadres")
-                + "<br> emailadres 2: " + parm1
-                + "<br> emailadres 3: " + object.getAchternaam()
+                + "<br> Voornaam: " + object.getVoornaam()
+                + "<br> Achternaam: " +object.getAchternaam()
+                + "<br> Straatnaam: " + object.getStraatnaam()
+                + "<br> huisnummer: " + object.getHuisnummer()
+                + "<br> postcode: " + object.getPostcode()
+                + "<br> username: " + object.getAccountnaam()
+                + "<br> passwoord: " + object.getPassword()
+                + "<br> emailadres: " + object.getEmailadres()
                 + "</body></html>");
     }
 }

@@ -20,11 +20,35 @@ public class AccountCredentials {
         this.emailadres = emailadres;
     }
 
-    public AccountCredentials() {
-
-    }
-
     public String getAchternaam() {
         return achternaam;
+    }
+
+    public String getVoornaam() {
+        return voornaam;
+    }
+
+    public String getStraatnaam() {
+        return straatnaam;
+    }
+
+    public String getHuisnummer() {
+        return huisnummer;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public String getAccountnaam() {
+        return accountnaam;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmailadres() {
+        return emailadres;
     }
 }
