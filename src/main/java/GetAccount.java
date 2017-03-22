@@ -37,7 +37,7 @@ public class GetAccount extends HttpServlet {
                 + "<html>\n"
                 + "<head><title>" + title + "</title></head>\n"
                 + "<body bgcolor=\"#f0f0f0\">\n"
-                + "Hier onder worden de gegevens weergeven: <br>"
+                + "GET Hier onder worden de gegevens weergeven: <br>"
                 + "<br> Voornaam: " + object.getVoornaam()
                 + "<br> Achternaam: " +object.getAchternaam()
                 + "<br> Straatnaam: " + object.getStraatnaam()

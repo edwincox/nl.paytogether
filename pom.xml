@@ -33,7 +33,6 @@
         <sourceDirectory>src/main/java/httptraffic</sourceDirectory>
         -->
     </build>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -45,5 +44,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
 </project>
