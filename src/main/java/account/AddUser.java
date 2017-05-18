@@ -57,5 +57,6 @@ public class AddUser extends HttpServlet {
                 + "<br> passwoord: " + request.getParameter("passwoord")
                 + "<br> emailadres: " + request.getParameter("emailadres")
                 + "</body></html>");
+
     }
 }
