@@ -1,3 +1,9 @@
+package application;
+
+import account.AccountAlreadyExistException;
+import account.AccountCredentials;
+import account.AccountCredentialsRepository;
+
 public class PayToGetherApplication {
 
     public static AccountCredentialsRepository account = new AccountCredentialsRepository();
@@ -50,8 +56,9 @@ public class PayToGetherApplication {
     public AccountCredentials getAccountForUser(String emailadres){
         AccountCredentials gegevens = account.getAccountForUser(emailadres);
 
-        //account.getAccountForUser(emailadres);
         return gegevens;
     }
+
+
 
 }

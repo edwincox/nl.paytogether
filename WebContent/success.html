@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Welcome
+
+    <br> Voornaam: <% object.getVoornaam(); %>
+    <br> Voornaam: " + ${requestScope['object'].accountnaam}
+    <br> Achternaam: " ${requestScope['object'].voornaam}
+    <br> Straatnaam: " + object.getStraatnaam()
+    <br> huisnummer: " + object.getHuisnummer()
+    <br> postcode: " + object.getPostcode()
+    <br> username: " + object.getAccountnaam()
+    <br> passwoord: " + object.getPassword()
+    <br> emailadres: " + object.getEmailadres()
+
+    <%
+    LoginBean object=(LoginBean)request.getAttribute("object");
+    out.print("Welcome, "+object.getName());
+    %>
+
+</body>
+</html>

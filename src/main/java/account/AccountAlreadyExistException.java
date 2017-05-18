@@ -1,6 +1,5 @@
-/**
- * Created by CoxEGTPH on 13-3-2017.
- */
+package account;
+
 public class AccountAlreadyExistException extends Exception {
 
     private String faultEmailAdres;

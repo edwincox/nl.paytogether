@@ -1,3 +1,5 @@
+package account;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,13 +16,13 @@ public class AccountCredentialsRepository {
             throw new AccountAlreadyExistException(emailadres);
         }else {
             String registrationNumber = String.valueOf(getNextRegistrationNumber());
-            AccountCredentials user = new AccountCredentials(voornaam, achternaam, straatnaam, huisnummer, postcode, accountnaam, password, emailadres);
+            AccountCredentials user = new AccountCredentials(registrationNumber, voornaam, achternaam, straatnaam, huisnummer, postcode, accountnaam, password, emailadres);
             this.accountcredentials.put(emailadres, user);
             return emailadres;
         }
     }
 
-    private boolean emailadresAlreadyExists(String emailadresControle) {
+    public boolean emailadresAlreadyExists(String emailadresControle) {
             AccountCredentials alreadyExitAccount = accountcredentials.get(emailadresControle);
 
             if (alreadyExitAccount != null) {

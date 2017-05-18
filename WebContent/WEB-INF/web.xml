@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>servlet</servlet-name>
-        <servlet-class>DisplayHeader</servlet-class>
+        <servlet-class>account.DisplayHeader</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>servlet</servlet-name>
@@ -20,7 +20,7 @@
 -->
     <servlet>
         <servlet-name>AddUser</servlet-name>
-        <servlet-class>AddUser</servlet-class>
+        <servlet-class>account.AddUser</servlet-class>
     </servlet>
 
 <!--
@@ -44,14 +44,23 @@
 
 
     <servlet>
-        <servlet-name>HelloForm</servlet-name>
-        <servlet-class>HelloForm</servlet-class>
+        <servlet-name>account.HelloForm</servlet-name>
+        <servlet-class>account.HelloForm</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloForm</servlet-name>
+        <servlet-name>account.HelloForm</servlet-name>
         <url-pattern>/HelloForm</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>authenticator.LoginController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
 
 </web-app>
