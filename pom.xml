@@ -18,7 +18,7 @@
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
-                    <executable>/opt/java/bin/edwi</executable>
+                    <executable>/opt/java/bin/javac</executable>
                 </configuration>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
