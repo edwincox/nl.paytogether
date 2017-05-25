@@ -5,15 +5,6 @@
     -->
     <display-name>displayname web.xml cox</display-name>
 
-    <servlet>
-        <servlet-name>servlet</servlet-name>
-        <servlet-class>account.DisplayHeader</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>servlet</servlet-name>
-        <url-pattern>/servlet</url-pattern>
-    </servlet-mapping>
-
 <!--
     1) servlet-name = Here you give the servlet a name van de class
     2) servlet-class = package name no package class name + class name
@@ -34,24 +25,14 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>GetAccount</servlet-name>
-        <servlet-class>GetAccount</servlet-class>
+        <servlet-name>GetUser</servlet-name>
+        <servlet-class>account.GetUser</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>GetAccount</servlet-name>
-        <url-pattern>/GetAccount</url-pattern>
+        <servlet-name>GetUser</servlet-name>
+        <url-pattern>/GetUser</url-pattern>
     </servlet-mapping>
 
-
-    <servlet>
-        <servlet-name>account.HelloForm</servlet-name>
-        <servlet-class>account.HelloForm</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>account.HelloForm</servlet-name>
-        <url-pattern>/HelloForm</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>LoginController</servlet-name>
