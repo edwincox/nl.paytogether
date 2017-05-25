@@ -53,4 +53,10 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>myrepository</id>
+            <url>/var/lib/jenkins/workspace/get_repo_into_jenkins/</url>
+        </repository>
+    </distributionManagement>
 </project>
