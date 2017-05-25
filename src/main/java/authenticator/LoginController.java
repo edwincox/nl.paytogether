@@ -2,7 +2,7 @@ package authenticator;
 
 import account.AccountAlreadyExistException;
 import account.AccountCredentials;
-import application.PayToGetherApplication;
+import account.PayToGetherApplication;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

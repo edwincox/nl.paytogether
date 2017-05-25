@@ -2,7 +2,7 @@ package authenticator;
 
 import account.AccountCredentials;
 import account.AccountCredentialsRepository;
-import application.PayToGetherApplication;
+import account.PayToGetherApplication;
 
 public class Audit {
 

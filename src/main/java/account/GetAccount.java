@@ -1,7 +1,5 @@
 package account;
 
-import application.PayToGetherApplication;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +45,6 @@ public class GetAccount extends HttpServlet {
                 + "<br> Straatnaam: " + object.getStraatnaam()
                 + "<br> huisnummer: " + object.getHuisnummer()
                 + "<br> postcode: " + object.getPostcode()
-                + "<br> username: " + object.getAccountnaam()
                 + "<br> passwoord: " + object.getPassword()
                 + "<br> emailadres: " + object.getEmailadres()
                 + "</body></html>");

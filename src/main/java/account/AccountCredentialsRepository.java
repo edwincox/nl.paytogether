@@ -9,14 +9,14 @@ public class AccountCredentialsRepository {
     private int nextRegistrationNumber = 0;
 
     public String createAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer,
-                                       String postcode, String accountnaam, String password, String emailadres)throws AccountAlreadyExistException{
+                                       String postcode, String password, String emailadres)throws AccountAlreadyExistException{
 
         if (emailadresAlreadyExists(emailadres)){
             System.out.println("Kies een ander username + emailadres");
             throw new AccountAlreadyExistException(emailadres);
         }else {
             String registrationNumber = String.valueOf(getNextRegistrationNumber());
-            AccountCredentials user = new AccountCredentials(registrationNumber, voornaam, achternaam, straatnaam, huisnummer, postcode, accountnaam, password, emailadres);
+            AccountCredentials user = new AccountCredentials(registrationNumber, voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
             this.accountcredentials.put(emailadres, user);
             return emailadres;
         }

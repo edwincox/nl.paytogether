@@ -1,7 +1,5 @@
 package account;// Import required java libraries
 
-import application.PayToGetherApplication;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +19,7 @@ public class AddUser extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // titel
-        String title = "Edwin's first get methode";
+        String title = "AddUser to application";
 
         String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " +
                 "transitional//en\">\n";
@@ -31,14 +29,13 @@ public class AddUser extends HttpServlet {
         String straatnaam = request.getParameter("straatnaam");
         String huisnummer = request.getParameter("huisnummer");
         String postcode = request.getParameter("postcode");
-        String username = request.getParameter("username");
         String passwoord = request.getParameter("passwoord");
         String emailadres = request.getParameter("emailadres");
 
         PayToGetherApplication makeuser = new PayToGetherApplication();
 
         try {
-            makeuser.createAccountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, username, passwoord, emailadres);
+            makeuser.accountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, passwoord, emailadres);
         } catch (AccountAlreadyExistException e) {
             e.printStackTrace();
         }
@@ -47,13 +44,13 @@ public class AddUser extends HttpServlet {
                 + "<html>\n"
                 + "<head><title>" + title + "</title></head>\n"
                 + "<body bgcolor=\"#f0f0f0\">\n"
+                + "Het aanmelden is gelukt, u kunt nu inloggen ga naar de begin pagina"
                 + "Hier onder worden de gegevens weergeven: <br>"
                 + "<br>  Voornaam: " + request.getParameter("voornaam")
                 + "<br> Achternaam: " + request.getParameter("achternaam")
                 + "<br> Straatnaam: " + request.getParameter("straatnaam")
                 + "<br> huisnummer: " + request.getParameter("huisnummer")
                 + "<br> postcode: " + request.getParameter("postcode")
-                + "<br> username: " + request.getParameter("username")
                 + "<br> passwoord: " + request.getParameter("passwoord")
                 + "<br> emailadres: " + request.getParameter("emailadres")
                 + "</body></html>");
