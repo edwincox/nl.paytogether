@@ -15,7 +15,6 @@ public class AddUser extends HttpServlet {
             throws ServletException, IOException{
 
         response.setContentType("text/html");
-
         PrintWriter out = response.getWriter();
 
         // titel
