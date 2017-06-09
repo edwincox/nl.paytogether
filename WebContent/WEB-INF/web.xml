@@ -55,7 +55,7 @@
 
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>login.Loginn</servlet-class>
+        <servlet-class>login.Login</servlet-class>
     </servlet>
 
     <servlet-mapping>
