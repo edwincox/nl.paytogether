@@ -33,6 +33,15 @@
         <url-pattern>/GetUser</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>GetAantal</servlet-name>
+        <servlet-class>account.GetAantal</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAantal</servlet-name>
+        <url-pattern>/GetAantal</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>LoginController</servlet-name>

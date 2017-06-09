@@ -32,27 +32,42 @@ public class AddUser extends HttpServlet {
         String emailadres = request.getParameter("emailadres");
 
         PayToGetherApplication makeuser = new PayToGetherApplication();
+        AccountCredentials terugkomstaccount = makeuser.accountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, passwoord, emailadres);
 
-        try {
-            makeuser.accountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, passwoord, emailadres);
-        } catch (AccountAlreadyExistException e) {
-            e.printStackTrace();
+
+        if(terugkomstaccount != null){
+
+            out.println(docType
+                    + "<html>\n"
+                    + "<head><title>" + title + "</title></head>\n"
+                    + "<body bgcolor=\"#f0f0f0\">\n"
+                    + "Het aanmelden is gelukt, u kunt nu inloggen ga naar de begin pagina"
+                    + "Hier onder worden de gegevens weergeven: <br>"
+                    + "<br>  Voornaam: " + request.getParameter("voornaam")
+                    + "<br> Achternaam: " + request.getParameter("achternaam")
+                    + "<br> Straatnaam: " + request.getParameter("straatnaam")
+                    + "<br> huisnummer: " + request.getParameter("huisnummer")
+                    + "<br> postcode: " + request.getParameter("postcode")
+                    + "<br> passwoord: " + request.getParameter("passwoord")
+                    + "<br> emailadres: " + request.getParameter("emailadres")
+                    + "</body></html>");
+        }else{
+            out.println(docType
+                    + "<html>\n"
+                    + "<head><title>" + title + "</title></head>\n"
+                    + "<body bgcolor=\"#f0f0f0\">\n"
+                    + "Het aanmelden is NIET gelukt"
+                    + "Hier onder worden de gegevens weergeven: <br>"
+                    + "<br>  Voornaam: ERROR"
+                    + "<br> Achternaam: ERROR"
+                    + "<br> Straatnaam: ERROR"
+                    + "<br> huisnummer: ERROR"
+                    + "<br> postcode: ERROR"
+                    + "<br> passwoord: ERROR"
+                    + "<br> emailadres: " + request.getParameter("emailadres")
+                    + "</body></html>");
+
         }
-
-        out.println(docType
-                + "<html>\n"
-                + "<head><title>" + title + "</title></head>\n"
-                + "<body bgcolor=\"#f0f0f0\">\n"
-                + "Het aanmelden is gelukt, u kunt nu inloggen ga naar de begin pagina"
-                + "Hier onder worden de gegevens weergeven: <br>"
-                + "<br>  Voornaam: " + request.getParameter("voornaam")
-                + "<br> Achternaam: " + request.getParameter("achternaam")
-                + "<br> Straatnaam: " + request.getParameter("straatnaam")
-                + "<br> huisnummer: " + request.getParameter("huisnummer")
-                + "<br> postcode: " + request.getParameter("postcode")
-                + "<br> passwoord: " + request.getParameter("passwoord")
-                + "<br> emailadres: " + request.getParameter("emailadres")
-                + "</body></html>");
 
     }
 }

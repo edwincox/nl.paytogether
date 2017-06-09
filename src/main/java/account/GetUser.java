@@ -20,7 +20,6 @@ public class GetUser extends HttpServlet {
 
         // Maak een person aan
         PayToGetherApplication makeuser = new PayToGetherApplication();
-
         AccountCredentials person = makeuser.getAccountForUser(emailadres);
 
         if(person != null){

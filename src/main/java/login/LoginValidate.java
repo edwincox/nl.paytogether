@@ -26,4 +26,22 @@ public class LoginValidate {
 
         return false;
     }
+
+    public boolean usernameValadionCorrectEmailAdres(String emailadres){
+
+        boolean bevatStringHetAtTeken = emailadres.contains("@");
+
+        if(bevatStringHetAtTeken == false ){
+            return false;
+        }
+
+        boolean bevatEmailAdesEenPunt = emailadres.contains(".");
+
+        if(bevatEmailAdesEenPunt == false){
+            return false;
+        }
+
+        return true;
+    }
+
 }

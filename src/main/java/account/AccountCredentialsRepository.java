@@ -1,5 +1,7 @@
 package account;
 
+import login.LoginValidate;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,18 +10,28 @@ public class AccountCredentialsRepository {
     private Map<String, AccountCredentials> accountcredentials = new HashMap<>();
     private int nextRegistrationNumber = 0;
 
-    public String createAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer,
-                                       String postcode, String password, String emailadres)throws AccountAlreadyExistException{
+    public AccountCredentials createAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer,
+                                       String postcode, String password, String emailadres){
 
         if (emailadresAlreadyExists(emailadres)){
             System.out.println("Kies een ander username + emailadres");
-            throw new AccountAlreadyExistException(emailadres);
+            return null;
         }else {
-            String registrationNumber = String.valueOf(getNextRegistrationNumber());
-            AccountCredentials user = new AccountCredentials(registrationNumber, voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
+            LoginValidate contreerlValidatieEmailAdres = new LoginValidate();
+            boolean resultaatControleEmailAdresValidati = contreerlValidatieEmailAdres.usernameValadionCorrectEmailAdres(emailadres);
+
+            if(resultaatControleEmailAdresValidati == false){
+                return null;
+            }
+            AccountCredentials user = new AccountCredentials(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
             this.accountcredentials.put(emailadres, user);
-            return emailadres;
+
+            //return accountcredentials.get(emailadres);
+            return user;
         }
+
+
+
     }
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
@@ -44,5 +56,9 @@ public class AccountCredentialsRepository {
 
     private int getNextRegistrationNumber(){
         return nextRegistrationNumber++;
+    }
+
+    public int aantalAccountInDeList(){
+        return accountcredentials.size();
     }
 }

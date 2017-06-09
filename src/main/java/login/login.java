@@ -18,11 +18,16 @@ public class Login extends HttpServlet {
         String n=request.getParameter("emailadres");
         String p=request.getParameter("password");
 
+
+
         LoginValidate controleLogin = new LoginValidate();
+
+        // Valaditioin email
+        boolean statusControleEmailAdres = controleLogin.usernameValadionCorrectEmailAdres(n);
         //boolean statusLogin = false;
         boolean statusLogin = controleLogin.loginValidate(n);
 
-        if(statusLogin == true){
+        if(statusLogin == true & statusControleEmailAdres == true){
             // Dispatch to welcome screen
             System.out.println("Login succesvol login.java go to loginsuccesvol.html");
             RequestDispatcher rd=request.getRequestDispatcher("loginsuccesvol.html");
