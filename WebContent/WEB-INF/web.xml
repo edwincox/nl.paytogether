@@ -25,6 +25,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>account.DeleteUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/DeleteUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>GetUser</servlet-name>
         <servlet-class>account.GetUser</servlet-class>
     </servlet>

@@ -1,5 +1,6 @@
 package account;
 
+
 public class PayToGetherApplication {
 
     public static AccountCredentialsRepository account = new AccountCredentialsRepository();
@@ -14,4 +15,27 @@ public class PayToGetherApplication {
         return gegevens;
     }
 
+    public boolean deleteAccountForUser(String emailadres){
+        AccountCredentials gegevens = account.getAccountForUser(emailadres);
+
+        if (gegevens == null){
+            System.out.println("Email adres bestaat niet done.");
+            return false;
+        }
+
+        boolean terug = account.deleteAccountForUser(gegevens.getEmailadres());
+
+        if (terug){
+            System.out.println("Prima");
+            return true;
+        }
+
+        AccountCredentials controleDaadwerkijkVerwijderd = account.getAccountForUser(emailadres);
+
+        if (controleDaadwerkijkVerwijderd == null){
+            return false;
+        }
+
+        return false;
+    }
 }

@@ -20,7 +20,7 @@ public class AccountCredentialsRepository {
             LoginValidate contreerlValidatieEmailAdres = new LoginValidate();
             boolean resultaatControleEmailAdresValidati = contreerlValidatieEmailAdres.usernameValadionCorrectEmailAdres(emailadres);
 
-            if(resultaatControleEmailAdresValidati == false){
+            if(!resultaatControleEmailAdresValidati){
                 return null;
             }
             AccountCredentials user = new AccountCredentials(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
@@ -29,9 +29,6 @@ public class AccountCredentialsRepository {
             //return accountcredentials.get(emailadres);
             return user;
         }
-
-
-
     }
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
@@ -49,13 +46,16 @@ public class AccountCredentialsRepository {
         return accountcredentials.get(emailadresControle);
     }
 
-    public void deleteAccountForUser(String accountnumberregistration){
-        accountcredentials.remove(accountnumberregistration);
-        System.out.println("I have delete number: " + accountnumberregistration);
-    }
+    public boolean deleteAccountForUser(String emailadres){
+        AccountCredentials objectpakken = accountcredentials.remove(emailadres);
+        System.out.println("I have delete number: " + emailadres);
 
-    private int getNextRegistrationNumber(){
-        return nextRegistrationNumber++;
+        if(objectpakken == null || objectpakken !=null){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     public int aantalAccountInDeList(){
