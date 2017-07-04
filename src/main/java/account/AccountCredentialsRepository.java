@@ -13,11 +13,18 @@ public class AccountCredentialsRepository {
     public AccountCredentials createAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer,
                                        String postcode, String password, String emailadres){
 
+        LoginValidate contreerlValidatieEmailAdres = new LoginValidate();
+
+        if(contreerlValidatieEmailAdres.passwordValidation(emailadres, password)){
+            return null;
+        }
+
+
         if (emailadresAlreadyExists(emailadres)){
             System.out.println("Kies een ander username + emailadres");
             return null;
         }else {
-            LoginValidate contreerlValidatieEmailAdres = new LoginValidate();
+
             boolean resultaatControleEmailAdresValidati = contreerlValidatieEmailAdres.usernameValadionCorrectEmailAdres(emailadres);
 
             if(!resultaatControleEmailAdresValidati){
@@ -29,6 +36,9 @@ public class AccountCredentialsRepository {
             //return accountcredentials.get(emailadres);
             return user;
         }
+
+
+
     }
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
