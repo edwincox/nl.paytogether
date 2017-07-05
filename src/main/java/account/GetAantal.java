@@ -23,8 +23,8 @@ public class GetAantal extends HttpServlet {
 
         //AccountCredentials person = makeuser.getAccountForUser(emailadres);
 
-        AccountCredentialsRepository account = new AccountCredentialsRepository();
-        int aantalterug = account.aantalAccountInDeList();
+        PayToGetherApplication makeuser = new PayToGetherApplication();
+        int aantalterug = makeuser.getAantalAccount();
 
 
 
@@ -33,7 +33,7 @@ public class GetAantal extends HttpServlet {
             // Get nummer wat wordt opgeven in het form
             //number = Integer.parseInt(request.getParameter("number"));
 
-            String title = "Opgevraagde user heeft de volgende gegevens";
+            String title = "Aantal account in list";
 
             String docType =
                     "<!doctype html public \"-//w3c//dtd html 4.0 " +
@@ -44,7 +44,7 @@ public class GetAantal extends HttpServlet {
                     "<body bgcolor=\"#f0f0f0\">\n" +
                     "<h1 align=\"center\">" + title + "</h1>\n" +
                     "<h2 align=\"center\"> "
-                    + "Aantal in List: " + aantalterug + "<br><br>"
+                    + "Aantal aacount in List: " + aantalterug + "<br><br>"
                     + "</h2>\n" +
                     "</body></html>");
     }

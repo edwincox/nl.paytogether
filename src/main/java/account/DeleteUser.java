@@ -20,8 +20,8 @@ public class DeleteUser extends HttpServlet{
 
         // Maak een person aan
         PayToGetherApplication makeuser = new PayToGetherApplication();
-        AccountCredentials person = makeuser.getAccountForUser(emailadres);
 
+        // Check of het verwijderen is gelukt
         boolean isAccountJuistVerwijderd = makeuser.deleteAccountForUser(emailadres);
 
         if(isAccountJuistVerwijderd){

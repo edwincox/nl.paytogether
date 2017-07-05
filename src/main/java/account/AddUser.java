@@ -28,11 +28,11 @@ public class AddUser extends HttpServlet {
         String straatnaam = request.getParameter("straatnaam");
         String huisnummer = request.getParameter("huisnummer");
         String postcode = request.getParameter("postcode");
-        String passwoord = request.getParameter("passwoord");
+        String password = request.getParameter("password");
         String emailadres = request.getParameter("emailadres");
 
         PayToGetherApplication makeuser = new PayToGetherApplication();
-        AccountCredentials terugkomstaccount = makeuser.accountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, passwoord, emailadres);
+        AccountCredentials terugkomstaccount = makeuser.accountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
 
 
         if(terugkomstaccount != null){
@@ -41,14 +41,15 @@ public class AddUser extends HttpServlet {
                     + "<html>\n"
                     + "<head><title>" + title + "</title></head>\n"
                     + "<body bgcolor=\"#f0f0f0\">\n"
-                    + "Het aanmelden is gelukt, u kunt nu inloggen ga naar de begin pagina"
+                    + "Het aanmelden is gelukt, u kunt nu inloggen ga naar het begin pagina"
+                    + "<u><b><a href='index.html'>go to index</a></b></u>"
                     + "Hier onder worden de gegevens weergeven: <br>"
                     + "<br>  Voornaam: " + request.getParameter("voornaam")
                     + "<br> Achternaam: " + request.getParameter("achternaam")
                     + "<br> Straatnaam: " + request.getParameter("straatnaam")
                     + "<br> huisnummer: " + request.getParameter("huisnummer")
                     + "<br> postcode: " + request.getParameter("postcode")
-                    + "<br> passwoord: " + request.getParameter("passwoord")
+                    + "<br> password: " + request.getParameter("password")
                     + "<br> emailadres: " + request.getParameter("emailadres")
                     + "</body></html>");
         }else{
@@ -56,14 +57,14 @@ public class AddUser extends HttpServlet {
                     + "<html>\n"
                     + "<head><title>" + title + "</title></head>\n"
                     + "<body bgcolor=\"#f0f0f0\">\n"
-                    + "Het aanmelden is NIET gelukt"
-                    + "Hier onder worden de gegevens weergeven: <br>"
-                    + "<br>  Voornaam: ERROR"
-                    + "<br> Achternaam: ERROR"
-                    + "<br> Straatnaam: ERROR"
-                    + "<br> huisnummer: ERROR"
-                    + "<br> postcode: ERROR"
-                    + "<br> passwoord: ERROR"
+                    + "Het aanmelden van deze user is NIET gelukt"
+                    + "Hier onder worden de gegevens weergeven die u heeft ingevuld: <br>"
+                    + "<br>  Voornaam: " + request.getParameter("voornaam")
+                    + "<br> Achternaam: " + request.getParameter("achternaam")
+                    + "<br> Straatnaam: " + request.getParameter("straatnaam")
+                    + "<br> huisnummer: " + request.getParameter("huisnummer")
+                    + "<br> postcode: " + request.getParameter("postcode")
+                    + "<br> password: "+ request.getParameter("password")
                     + "<br> emailadres: " + request.getParameter("emailadres")
                     + "</body></html>");
 

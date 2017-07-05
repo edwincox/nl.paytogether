@@ -6,13 +6,11 @@ import account.PayToGetherApplication;
 public class LoginValidate {
 
     public boolean loginValidate(String username){
-
-        boolean status;
-
         PayToGetherApplication person = new PayToGetherApplication();
         AccountCredentials userprofile = person.getAccountForUser(username);
 
-        //if (username.equals(userprofile.getEmailadres())){
+        boolean status;
+
 
         if (userprofile == null) {
             return false;
@@ -44,4 +42,11 @@ public class LoginValidate {
         return true;
     }
 
+    public boolean passwordValidation(String username, String password){
+        if(password == null || password.isEmpty() ){
+            System.out.println("Password is emtpy, exit programme");
+            return true;
+        }
+        return false;
+    }
 }

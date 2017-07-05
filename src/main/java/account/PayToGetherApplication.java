@@ -16,26 +16,31 @@ public class PayToGetherApplication {
     }
 
     public boolean deleteAccountForUser(String emailadres){
-        AccountCredentials gegevens = account.getAccountForUser(emailadres);
+        AccountCredentials opgehaaldAccount = account.getAccountForUser(emailadres);
 
-        if (gegevens == null){
-            System.out.println("Email adres bestaat niet done.");
+        if (opgehaaldAccount == null){
+            System.out.println("Email adres bestaat niet, in de list.");
             return false;
         }
 
-        boolean terug = account.deleteAccountForUser(gegevens.getEmailadres());
+        boolean terug = account.deleteAccountForUser(opgehaaldAccount.getEmailadres());
 
         if (terug){
-            System.out.println("Prima");
+            System.out.println("Account succesvol opgehaald");
             return true;
         }
 
         AccountCredentials controleDaadwerkijkVerwijderd = account.getAccountForUser(emailadres);
 
         if (controleDaadwerkijkVerwijderd == null){
+            System.out.println("Account niet kunnen ophalen");
             return false;
         }
 
         return false;
+    }
+
+    public int getAantalAccount(){
+        return account.aantalAccountInDeList();
     }
 }
