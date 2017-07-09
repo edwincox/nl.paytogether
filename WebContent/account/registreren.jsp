@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<br>
-<br>
-<form action="AddUser" method="GET">
+<form action="../AddUser" method="GET">
     Enter emailadres : <input type="text" name="emailadres" value="edwin@hotmail.com"> <BR>
     Enter password :   <input type="text" name="password"> <BR>
     Enter emailadres : <input type="text" name="voornaam" value="Edwin"> <BR>
@@ -17,7 +14,6 @@
     Enter emailadres : <input type="text" name="postcode" value="5814 ag"> <BR>
     <input type="submit" />
 </form>
-<br>
 <br>
 </body>
 </html>

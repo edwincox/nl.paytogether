@@ -1,31 +1,33 @@
 package account;
 
-import login.LoginValidate;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class AccountCredentialsRepository {
 
-    private Map<String, AccountCredentials> accountcredentials = new HashMap<>();
-    private int nextRegistrationNumber = 0;
+    private static final Map<String, AccountCredentials> accountcredentials = new HashMap<>();
 
-    public AccountCredentials createAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer,
-                                       String postcode, String password, String emailadres){
 
-        LoginValidate contreerlValidatieEmailAdres = new LoginValidate();
 
-        if(contreerlValidatieEmailAdres.passwordValidation(emailadres, password)){
+    public AccountCredentials createNewAccount(String voornaam, String achternaam, String straatnaam, String huisnummer,
+                                               String postcode, String password, String emailadres){
+
+        AccountValidation checkIfAccountDataIsCorrect = new AccountValidation();
+
+        if(!checkIfAccountDataIsCorrect.voornaamCheck(voornaam)){
             return null;
         }
 
+        if(!checkIfAccountDataIsCorrect.passwordValidation(password)){
+            return null;
+        }
 
         if (emailadresAlreadyExists(emailadres)){
             System.out.println("Kies een ander username + emailadres");
             return null;
         }else {
 
-            boolean resultaatControleEmailAdresValidati = contreerlValidatieEmailAdres.usernameValadionCorrectEmailAdres(emailadres);
+            boolean resultaatControleEmailAdresValidati = checkIfAccountDataIsCorrect.usernameValadionCorrectEmailAdres(emailadres);
 
             if(!resultaatControleEmailAdresValidati){
                 return null;
@@ -65,7 +67,6 @@ public class AccountCredentialsRepository {
         }else{
             return false;
         }
-
     }
 
     public int aantalAccountInDeList(){

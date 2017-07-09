@@ -11,7 +11,6 @@ public class LoginValidate {
 
         boolean status;
 
-
         if (userprofile == null) {
             return false;
         }
@@ -25,28 +24,4 @@ public class LoginValidate {
         return false;
     }
 
-    public boolean usernameValadionCorrectEmailAdres(String emailadres){
-
-        boolean bevatStringHetAtTeken = emailadres.contains("@");
-
-        if(bevatStringHetAtTeken == false ){
-            return false;
-        }
-
-        boolean bevatEmailAdesEenPunt = emailadres.contains(".");
-
-        if(bevatEmailAdesEenPunt == false){
-            return false;
-        }
-
-        return true;
-    }
-
-    public boolean passwordValidation(String username, String password){
-        if(password == null || password.isEmpty() ){
-            System.out.println("Password is emtpy, exit programme");
-            return true;
-        }
-        return false;
-    }
 }

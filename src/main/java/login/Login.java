@@ -1,6 +1,7 @@
 package login;
 
 import account.AccountCredentials;
+import account.AccountValidation;
 import account.PayToGetherApplication;
 
 import javax.servlet.RequestDispatcher;
@@ -22,12 +23,13 @@ public class Login extends HttpServlet {
         String emailadres=request.getParameter("emailadres");
         String p=request.getParameter("password");
 
-        LoginValidate controleLogin = new LoginValidate();
+        AccountValidation controleCreateAccount = new AccountValidation();
+        LoginValidate controleLoginValidation = new LoginValidate();
 
         // Valaditioin email
-        boolean statusControleEmailAdres = controleLogin.usernameValadionCorrectEmailAdres(emailadres);
+        boolean statusControleEmailAdres = controleCreateAccount.usernameValadionCorrectEmailAdres(emailadres);
         //boolean statusLogin = false;
-        boolean statusLogin = controleLogin.loginValidate(emailadres);
+        boolean statusLogin = controleLoginValidation.loginValidate(emailadres);
 
         // Account ophalen
         PayToGetherApplication makeuser = new PayToGetherApplication();

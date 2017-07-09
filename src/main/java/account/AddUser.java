@@ -31,11 +31,10 @@ public class AddUser extends HttpServlet {
         String password = request.getParameter("password");
         String emailadres = request.getParameter("emailadres");
 
-        PayToGetherApplication makeuser = new PayToGetherApplication();
-        AccountCredentials terugkomstaccount = makeuser.accountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
+        PayToGetherApplication makeNewUser = new PayToGetherApplication();
+        AccountCredentials accountCredentials = makeNewUser.createNewAccountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
 
-
-        if(terugkomstaccount != null){
+        if(accountCredentials != null){
 
             out.println(docType
                     + "<html>\n"
@@ -58,6 +57,7 @@ public class AddUser extends HttpServlet {
                     + "<head><title>" + title + "</title></head>\n"
                     + "<body bgcolor=\"#f0f0f0\">\n"
                     + "Het aanmelden van deze user is NIET gelukt"
+                    + "De gegevens zijn niet correct"
                     + "Hier onder worden de gegevens weergeven die u heeft ingevuld: <br>"
                     + "<br>  Voornaam: " + request.getParameter("voornaam")
                     + "<br> Achternaam: " + request.getParameter("achternaam")
@@ -67,8 +67,6 @@ public class AddUser extends HttpServlet {
                     + "<br> password: "+ request.getParameter("password")
                     + "<br> emailadres: " + request.getParameter("emailadres")
                     + "</body></html>");
-
         }
-
     }
 }
