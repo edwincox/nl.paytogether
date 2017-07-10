@@ -5,9 +5,7 @@ import java.util.Map;
 
 public class AccountCredentialsRepository {
 
-    private static final Map<String, AccountCredentials> accountcredentials = new HashMap<>();
-
-
+    static final Map<String, AccountCredentials> accountcredentials = new HashMap<>();
 
     public AccountCredentials createNewAccount(String voornaam, String achternaam, String straatnaam, String huisnummer,
                                                String postcode, String password, String emailadres){

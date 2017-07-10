@@ -6,12 +6,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by edwincox on 9-7-2017.
- */
-public class PayToGetherApplicationTest {
-
-
+public class PayToGetherApplicationTest extends AccountCredentialsRepository{
 
     @Test
     public void create_new_user_get_object_back_AND_getaantal_in_hashmap_must_be_one() throws Exception {
@@ -32,15 +27,27 @@ public class PayToGetherApplicationTest {
 
     @Test
     public void get_one_user_out_hashmap(){
-        PayToGetherApplication makeuser10 = new PayToGetherApplication();
-        makeuser10.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "edje_coxje12@hotmail.com");
+        accountcredentials.clear();
+        PayToGetherApplication makeuser = new PayToGetherApplication();
+        makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "edje_coxje12@hotmail.com");
 
-        int aantalInHashmap = makeuser10.getAantalAccount();
+        int aantalInHashmap = makeuser.getAantalAccount();
         assertThat(aantalInHashmap, is(1)); // er moet 1 account\object in hashmap zitten
     }
     @Test
-    public void testDeleteAccountForUser() throws Exception {
+    public void delete_user_from_hashmap_list() throws Exception {
+        accountcredentials.clear();
 
+        PayToGetherApplication makeuser = new PayToGetherApplication();
+        makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "piet@hotmail.com");
+
+        int aantalInHashmap = makeuser.getAantalAccount();
+        System.out.println("Aantal in hashmap: " + aantalInHashmap);
+
+        makeuser.deleteAccountForUser("piet@hotmail.com");
+        int aantalInHashmap2 = makeuser.getAantalAccount();
+
+        assertThat(aantalInHashmap2, is(0)); // er moet 1 account\object in hashmap zitten
     }
 
     @Test
