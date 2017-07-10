@@ -32,8 +32,6 @@ public class PayToGetherApplicationTest {
 
     @Test
     public void get_one_user_out_hashmap(){
-
-
         PayToGetherApplication makeuser10 = new PayToGetherApplication();
         makeuser10.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "edje_coxje12@hotmail.com");
 
