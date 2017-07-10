@@ -60,6 +60,7 @@ public class PayToGetherApplicationTest {
         PayToGetherApplication makeuser4 = new PayToGetherApplication();
         makeuser4.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "piet4@hotmail.com");
 
+
         PayToGetherApplication makeuser5 = new PayToGetherApplication();
         int aantalInHashmap = makeuser5.getAantalAccount();
         System.out.println("Aantal:" + aantalInHashmap);
