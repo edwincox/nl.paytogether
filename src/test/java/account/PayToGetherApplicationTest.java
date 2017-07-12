@@ -52,6 +52,7 @@ public class PayToGetherApplicationTest extends AccountCredentialsRepository{
 
     @Test
     public void get_5_user_out_hashmap() throws Exception {
+        accountcredentials.clear();
         PayToGetherApplication makeuser = new PayToGetherApplication();
         makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "piet@hotmail.com");
 
