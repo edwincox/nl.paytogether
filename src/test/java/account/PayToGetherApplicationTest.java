@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-public class PayToGetherApplicationTest extends AccountCredentialsRepository{
+public class PayToGetherApplicationTest{
 
     @Test
     public void create_new_user_get_object_back_AND_getaantal_in_hashmap_must_be_one() throws Exception {
@@ -27,8 +27,9 @@ public class PayToGetherApplicationTest extends AccountCredentialsRepository{
 
     @Test
     public void get_one_user_out_hashmap(){
-        accountcredentials.clear();
+
         PayToGetherApplication makeuser = new PayToGetherApplication();
+        makeuser.emptyTheListLikeTheDatabase();
         makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "edje_coxje12@hotmail.com");
 
         int aantalInHashmap = makeuser.getAantalAccount();
@@ -36,9 +37,9 @@ public class PayToGetherApplicationTest extends AccountCredentialsRepository{
     }
     @Test
     public void delete_user_from_hashmap_list() throws Exception {
-        accountcredentials.clear();
-
         PayToGetherApplication makeuser = new PayToGetherApplication();
+        makeuser.emptyTheListLikeTheDatabase();
+
         makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "piet@hotmail.com");
 
         int aantalInHashmap = makeuser.getAantalAccount();
@@ -52,8 +53,9 @@ public class PayToGetherApplicationTest extends AccountCredentialsRepository{
 
     @Test
     public void get_5_user_out_hashmap() throws Exception {
-        accountcredentials.clear();
         PayToGetherApplication makeuser = new PayToGetherApplication();
+        makeuser.emptyTheListLikeTheDatabase();
+
         makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "piet@hotmail.com");
 
         PayToGetherApplication makeuser1 = new PayToGetherApplication();

@@ -10,35 +10,19 @@ public class AccountCredentialsRepository {
     public AccountCredentials createNewAccount(String voornaam, String achternaam, String straatnaam, String huisnummer,
                                                String postcode, String password, String emailadres){
 
+        AccountCredentials accountcredentails = new AccountCredentials(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
+
         AccountValidation checkIfAccountDataIsCorrect = new AccountValidation();
 
-        if(!checkIfAccountDataIsCorrect.voornaamCheck(voornaam)){
-            return null;
-        }
+        boolean tt = checkIfAccountDataIsCorrect.checkIfAccountIsValid(accountcredentails);
 
-        if(!checkIfAccountDataIsCorrect.passwordValidation(password)){
-            return null;
-        }
-
-        if (emailadresAlreadyExists(emailadres)){
+        if (!tt){
             System.out.println("Kies een ander username + emailadres");
             return null;
         }else {
-
-            boolean resultaatControleEmailAdresValidati = checkIfAccountDataIsCorrect.usernameValadionCorrectEmailAdres(emailadres);
-
-            if(!resultaatControleEmailAdresValidati){
-                return null;
-            }
-            AccountCredentials user = new AccountCredentials(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
-            this.accountcredentials.put(emailadres, user);
-
-            //return accountcredentials.get(emailadres);
-            return user;
+            this.accountcredentials.put(emailadres, accountcredentails);
+            return accountcredentails;
         }
-
-
-
     }
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
@@ -70,4 +54,10 @@ public class AccountCredentialsRepository {
     public int aantalAccountInDeList(){
         return accountcredentials.size();
     }
+
+    public int deleteListLikeADatabaseGiveTotalBack(){
+        accountcredentials.clear();
+        return aantalAccountInDeList();
+    }
+
 }

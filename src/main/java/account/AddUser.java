@@ -41,7 +41,7 @@ public class AddUser extends HttpServlet {
                     + "<head><title>" + title + "</title></head>\n"
                     + "<body bgcolor=\"#f0f0f0\">\n"
                     + "Het aanmelden is gelukt, u kunt nu inloggen ga naar het begin pagina"
-                    + "<u><b><a href='index.html'>go to index</a></b></u>"
+                    + "<u><b><a href='index.jsp'>go to index</a></b></u>"
                     + "Hier onder worden de gegevens weergeven: <br>"
                     + "<br>  Voornaam: " + request.getParameter("voornaam")
                     + "<br> Achternaam: " + request.getParameter("achternaam")

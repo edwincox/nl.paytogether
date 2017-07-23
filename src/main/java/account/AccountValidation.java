@@ -7,6 +7,18 @@ public class AccountValidation extends AccountCredentialsRepository {
 
     private static final String SPECIAL_CHARS_REGEX_PATTERN = "[" + "-/@#!*$%^&.'_+={}()áéíóúýäëïöüÿàèìòùãõñâêîôû"+ "]+" ;
 
+
+    public boolean checkIfAccountIsValid(AccountCredentials accountCredentails) {
+
+        boolean checkIfVoornaamIsValid = voornaamCheck(accountCredentails.getVoornaam());
+        boolean checkIfPasswordIsValid = passwordValidation(accountCredentails.getPassword());
+        boolean checkIfEmailIsValid = emailadresAlreadyExists(accountCredentails.getEmailadres());
+        boolean checkIfUsernameValid = usernameValadionCorrectEmailAdres(accountCredentails.getEmailadres());
+
+        return checkIfVoornaamIsValid && checkIfPasswordIsValid && checkIfEmailIsValid && checkIfUsernameValid;
+    }
+
+
     public boolean voornaamCheck(String voornaam){
 
         Pattern pattern = Pattern.compile("[a-z][A-Z]]");
@@ -24,7 +36,6 @@ public class AccountValidation extends AccountCredentialsRepository {
             System.out.println("Special characters gevonden, niet toegestaan, false");
             return false;
         }
-
         return true;
     }
 
@@ -36,8 +47,8 @@ public class AccountValidation extends AccountCredentialsRepository {
             return false;
         }
 
-        if(password.length() < 10 ){
-            System.out.println("Password must have more then 10 Characters. You give " + password.length());
+        if(password.length() < 4 ){
+            System.out.println("Password must have less then 4 Characters. You give " + password.length());
             return false;
         }
 
@@ -51,10 +62,10 @@ public class AccountValidation extends AccountCredentialsRepository {
 
         if (alreadyExitAccount != null) {
             System.out.println("Username en emailadres zijn al bekend in ons systeem");
-            return true;
+            return false;
         }
         // }
-        return false;
+        return true;
     }
 
     public boolean usernameValadionCorrectEmailAdres(String emailadres){
@@ -73,7 +84,6 @@ public class AccountValidation extends AccountCredentialsRepository {
 
         return true;
     }
-
 
 
 
