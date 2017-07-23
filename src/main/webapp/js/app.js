@@ -13,7 +13,6 @@
 //        templateUrl : "index.html"
 //    })
 
-
 // Declare app level module which depends on filters, and services
 angular.module('paytogether', ['filters', 'services', 'directives', 'controllers']).
     config(['$routeProvider', function ($routeProvider) {
