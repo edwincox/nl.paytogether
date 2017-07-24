@@ -3,34 +3,35 @@ package account;
 
 public class PayToGetherApplication {
 
-    public static AccountCredentialsRepository account = new AccountCredentialsRepository();
+    public static AccountCredentialsRepository repository = new AccountCredentialsRepository();
 
     public AccountCredentials createNewAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer, String postcode, String passwoord, String emailadres){
-        AccountCredentials accountCredentials = account.createNewAccount(voornaam, achternaam, straatnaam, huisnummer, postcode, passwoord, emailadres);
+
+        AccountCredentials accountCredentials = repository.createNewAccount(voornaam, achternaam, straatnaam, huisnummer, postcode, passwoord, emailadres);
         return accountCredentials;
     }
 
     public AccountCredentials getAccountForUser(String emailadres){
-        AccountCredentials gegevens = account.getAccountForUser(emailadres);
+        AccountCredentials gegevens = repository.getAccountForUser(emailadres);
         return gegevens;
     }
 
     public boolean deleteAccountForUser(String emailadres){
-        AccountCredentials opgehaaldAccount = account.getAccountForUser(emailadres);
+        AccountCredentials opgehaaldAccount = repository.getAccountForUser(emailadres);
 
         if (opgehaaldAccount == null){
             System.out.println("Email adres bestaat niet, in de list.");
             return false;
         }
 
-        boolean terug = account.deleteAccountForUser(opgehaaldAccount.getEmailadres());
+        boolean terug = repository.deleteAccountForUser(opgehaaldAccount.getEmailadres());
 
         if (terug){
             System.out.println("Account succesvol opgehaald");
             return true;
         }
 
-        AccountCredentials controleDaadwerkijkVerwijderd = account.getAccountForUser(emailadres);
+        AccountCredentials controleDaadwerkijkVerwijderd = repository.getAccountForUser(emailadres);
 
         if (controleDaadwerkijkVerwijderd == null){
             System.out.println("Account niet kunnen ophalen");
@@ -41,10 +42,10 @@ public class PayToGetherApplication {
     }
 
     public int getAantalAccount(){
-        return account.aantalAccountInDeList();
+        return repository.aantalAccountInDeList();
     }
 
     public int emptyTheListLikeTheDatabase(){
-        return account.deleteListLikeADatabaseGiveTotalBack();
+        return repository.deleteListLikeADatabaseGiveTotalBack();
     }
 }

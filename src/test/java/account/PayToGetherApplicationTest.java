@@ -10,10 +10,10 @@ public class PayToGetherApplicationTest{
 
     @Test
     public void create_new_user_get_object_back_AND_getaantal_in_hashmap_must_be_one() throws Exception {
-        PayToGetherApplication makeuser = new PayToGetherApplication();
-        AccountCredentials makeaccount = makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "piet99@hotmail.com");
+        PayToGetherApplication payToGetherApplication = new PayToGetherApplication();
+        AccountCredentials accountCredentials = payToGetherApplication.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "piet99@hotmail.com");
 
-        assertNotNull(makeaccount); // Er moet een object terug komen geen null
+        assertNotNull(accountCredentials); // Er moet een object terug komen geen null
     }
 
     @Test
@@ -33,7 +33,7 @@ public class PayToGetherApplicationTest{
         makeuser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "edje_coxje12@hotmail.com");
 
         int aantalInHashmap = makeuser.getAantalAccount();
-        assertThat(aantalInHashmap, is(1)); // er moet 1 account\object in hashmap zitten
+        assertThat(aantalInHashmap, is(1)); // er moet 1 repository\object in hashmap zitten
     }
     @Test
     public void delete_user_from_hashmap_list() throws Exception {
@@ -48,7 +48,7 @@ public class PayToGetherApplicationTest{
         makeuser.deleteAccountForUser("piet@hotmail.com");
         int aantalInHashmap2 = makeuser.getAantalAccount();
 
-        assertThat(aantalInHashmap2, is(0)); // er moet 1 account\object in hashmap zitten
+        assertThat(aantalInHashmap2, is(0)); // er moet 1 repository\object in hashmap zitten
     }
 
     @Test
@@ -73,6 +73,6 @@ public class PayToGetherApplicationTest{
         PayToGetherApplication makeuser5 = new PayToGetherApplication();
         int aantalInHashmap = makeuser5.getAantalAccount();
         System.out.println("Aantal:" + aantalInHashmap);
-        assertThat(aantalInHashmap, is(5)); // er moet 1 account\object in hashmap zitten
+        assertThat(aantalInHashmap, is(5)); // er moet 1 repository\object in hashmap zitten
     }
 }
