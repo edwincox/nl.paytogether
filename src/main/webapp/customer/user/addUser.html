@@ -1,7 +1,40 @@
-<!-- <div class="invoer" data-ng-controller="ZoekController"> -->
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="addUser.js"></script>
+</head>
+<body>
 
-<div>
-    <p>
-        Result from RESTful service is: {{ firstname }}
-    </p>
+<div  ng-controller="formControllerAddUser">
+    <form>
+        Voornaam    <input type="text" ng-model="account.voornaam"><br>
+        Achternaam  <input type="text" ng-model="account.achternaam"><br>
+        straatnaam  <input type="text" ng-model="account.straatnaam"><br>
+        huisnummer  <input type="text" ng-model="account.huisnummer"><br>
+        postcode    <input type="text" ng-model="account.postcode"><br>
+        password    <input type="text" ng-model="account.password"><br>
+        emailadres  <input type="text" ng-model="account.emailadres"><br>
+        <p ng-bind="voornaam"></p>
+    </form>
 </div>
+
+
+<form ng-controller="UserController" ng-submit="createUser()">
+    <legend>Add New User</legend>
+
+    <label>Name: </label>
+    <input type="text" id="name" name="name" ng-model="user.name" placeholder="User Name">
+
+    <label>Password:</label>
+    <input type="text" id="pwd" name="pwd" ng-model="user.pwd" placeholder="Your Password">
+
+    <button class="btn btn-primary">Add</button>
+    <br/>
+    <label>{{status}}</label>
+</form>
+
+
+
+</body>
+</html>

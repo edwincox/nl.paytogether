@@ -1,24 +1,24 @@
-//var paytogether = angular.module(payToGetherApp, []);
-//
-//payToGetherApp.config(['$routeProvider']).function($routeProvider){
-//$routeProvider
-//    .when("/test",{
-//        templateUrl : "test.html"
-//    })
-//    .when("/customer/user/addUser.html",{
-//        templateUrl : "addUser.html",
-//        controller : 'MyCtrll';
-//    })
-//    .when("/*",{
-//        templateUrl : "index.html"
-//    })
-
-// Declare app level module which depends on filters, and services
-angular.module('paytogether', ['filters', 'services', 'directives', 'controllers']).
-    config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-        $routeProvider.otherwise({redirectTo: '/view1'});
-    }]);
-
-
+var paytogether = function($scope){
+    $scope.appDetails = {
+        title: "Website Paytogether",
+        tagline: "Welkom op deze site"
+    };
 }
+
+var app = angular.module('myApp', []);
+
+function MyController($scope, $http) {
+
+        $scope.getDataFromServer = function() {
+                $http({
+                        method : 'GET',
+                        url : 'GetUser'
+                }).success(function(data, status, headers, config) {
+                        $scope.person = data;
+                }).error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                });
+
+        };
+};
