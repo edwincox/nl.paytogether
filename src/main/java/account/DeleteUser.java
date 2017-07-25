@@ -39,7 +39,7 @@ public class DeleteUser extends HttpServlet{
                     "<body bgcolor=\"#f0f0f0\">\n" +
                     "<h1 align=\"center\">" + title + "</h1>\n" +
                     "<h2 align=\"center\"> "
-                    + "Jou account is verwijderd, het account bestaat niet meer"
+                    + "Jou repository is verwijderd, het repository bestaat niet meer"
                     + "Wat is de waarde 1" + isAccountJuistVerwijderd
                     + "</h2>\n" +
                     "</body></html>");
@@ -47,7 +47,7 @@ public class DeleteUser extends HttpServlet{
         }else{
 
             PrintWriter out = response.getWriter();
-            String title = "ERROR bij account verwijderd";
+            String title = "ERROR bij repository verwijderd";
 
             String docType =
                     "<!doctype html public \"-//w3c//dtd html 4.0 " +
@@ -59,7 +59,7 @@ public class DeleteUser extends HttpServlet{
                     "<body bgcolor=\"#f0f0f0\">\n" +
                     "<h1 align=\"center\">" + title + "</h1>\n" +
                     "<h2 align=\"center\"> "
-                    + "Account bestaat ! <br> of het account is al verwijderd !"
+                    + "Account bestaat ! <br> of het repository is al verwijderd !"
                     + "Wat is de waarde 2" + isAccountJuistVerwijderd
                     + "</h2>\n" +
                     "</body></html>");

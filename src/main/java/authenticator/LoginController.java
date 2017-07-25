@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
         if (result.equals("success")) {
             rd = request.getRequestDispatcher("/success.html");
 
-            // succesvol get account gegevens
+            // succesvol get repository gegevens
             PayToGetherApplication makeuser = new PayToGetherApplication();
             AccountCredentials object = makeuser.getAccountForUser(emailadres);
 

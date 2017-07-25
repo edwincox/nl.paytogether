@@ -33,7 +33,7 @@ public class GetAantal extends HttpServlet {
             // Get nummer wat wordt opgeven in het form
             //number = Integer.parseInt(request.getParameter("number"));
 
-            String title = "Aantal account in list";
+            String title = "Aantal repository in list";
 
             String docType =
                     "<!doctype html public \"-//w3c//dtd html 4.0 " +

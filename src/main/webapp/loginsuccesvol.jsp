@@ -27,7 +27,7 @@ out.print("<form action='GetUser' method='POST'> "
 
 session.setAttribute("emailadres",emailadres);
 out.print("<br>" + "Wil je het account verwijderen klik hier onder: " + "<br>");
-out.print("<a href='account/verwijderaccount.html'>Verwijder account</a><br><br>");
+out.print("<a href='customer/verwijderaccount.html'>Verwijder account</a><br><br>");
 
 
 
