@@ -51,7 +51,6 @@
         <url-pattern>/GetAantal</url-pattern>
     </servlet-mapping>
 
-
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>authenticator.LoginController</servlet-class>
