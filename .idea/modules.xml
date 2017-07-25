@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/nl.paytogether.iml" filepath="$PROJECT_DIR$/nl.paytogether.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paytogether.iml" filepath="$PROJECT_DIR$/paytogether.iml" />
     </modules>
   </component>
 </project>
