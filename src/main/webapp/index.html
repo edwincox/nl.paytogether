@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="css/app.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+
+
+<div ng-controller="paytogether">
+
+ Titel website: {{appDetails.title}}
+ <br>
+ Welkom boodschap: {{appDetails.tagline}}
+
+</div>
+
+<div ng-app="myApp">
+    <div ng-controller="MyController">
+        <button ng-click="getDataFromServer()">Fetch data from server</button>
+        <p>First Name : {{person.firstName}}</p>
+        <p>Last Name : {{person.lastName}}</p>
+    </div>
+</div>
+
+
+
+</body>
+</html>

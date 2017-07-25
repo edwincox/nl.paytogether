@@ -43,4 +43,8 @@ public class PayToGetherApplication {
     public int getAantalAccount(){
         return account.aantalAccountInDeList();
     }
+
+    public int emptyTheListLikeTheDatabase(){
+        return account.deleteListLikeADatabaseGiveTotalBack();
+    }
 }

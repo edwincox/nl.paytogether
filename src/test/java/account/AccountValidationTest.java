@@ -36,8 +36,8 @@ public class AccountValidationTest {
     }
 
     @Test
-    public void it_should_Test_password_less_then_10_karakters_() throws Exception {
-    boolean controle = test.passwordValidation("123456789");
+    public void it_should_Test_password_less_then_5_karakters_() throws Exception {
+    boolean controle = test.passwordValidation("123");
         assertThat(controle, is(false));
     }
 
@@ -64,13 +64,13 @@ public class AccountValidationTest {
     @Test
     public void test() throws Exception {
         PayToGetherApplication makeNewUser = new PayToGetherApplication();
-        AccountCredentials tt = makeNewUser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "1234567891580", "edje_coxje@hotmail.com");
+        AccountCredentials tt = makeNewUser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "1234567891580", "edje_coxjevan@hotmail.com");
 
         String emailadres = tt.getEmailadres();
         boolean waardeterug = test.emailadresAlreadyExists(emailadres);
 
         System.out.println(waardeterug);
-        assertThat(waardeterug, is(true));
+        assertThat(waardeterug, is(false));
 
     }
 }
