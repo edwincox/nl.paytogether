@@ -32,7 +32,6 @@ public class AccountCredentialsRepository {
                 System.out.println("Username en emailadres zijn al bekend in ons systeem");
                 return true;
             }
-       // }
         return false;
     }
 
@@ -45,8 +44,10 @@ public class AccountCredentialsRepository {
         System.out.println("I have delete number: " + emailadres);
 
         if(objectpakken == null || objectpakken !=null){
+            System.out.println("Er is een object aanwezig in de hashmap");
             return true;
         }else{
+            System.out.println("Er zijn geen objecten meer in de hashmap");
             return false;
         }
     }
