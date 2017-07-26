@@ -6,7 +6,6 @@ public class PayToGetherApplication {
     public static AccountCredentialsRepository repository = new AccountCredentialsRepository();
 
     public AccountCredentials createNewAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer, String postcode, String passwoord, String emailadres){
-
         AccountCredentials accountCredentials = repository.createNewAccount(voornaam, achternaam, straatnaam, huisnummer, postcode, passwoord, emailadres);
         return accountCredentials;
     }

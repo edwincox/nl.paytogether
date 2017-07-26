@@ -18,7 +18,6 @@ public class AccountCredentials {
         this.postcode = postcode;
         this.password = password;
         this.emailadres = emailadres;
-
     }
 
     public String getAchternaam() {

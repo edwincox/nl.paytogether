@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <name>cox</name>
     <groupId>nl.paytogether</groupId>
-    <artifactId>payalltogether</artifactId>
+    <artifactId>paytogether</artifactId>
     <version>5</version>
     <packaging>war</packaging>
 

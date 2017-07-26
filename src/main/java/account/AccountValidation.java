@@ -7,7 +7,6 @@ public class AccountValidation extends AccountCredentialsRepository {
 
     private static final String SPECIAL_CHARS_REGEX_PATTERN = "[" + "-/@#!*$%^&.'_+={}()áéíóúýäëïöüÿàèìòùãõñâêîôû"+ "]+" ;
 
-
     public boolean checkIfAccountIsValid(AccountCredentials accountCredentails) {
 
         boolean checkIfVoornaamIsValid = voornaamCheck(accountCredentails.getVoornaam());
@@ -17,7 +16,6 @@ public class AccountValidation extends AccountCredentialsRepository {
 
         return checkIfVoornaamIsValid && checkIfPasswordIsValid && checkIfEmailIsValid && checkIfUsernameValid;
     }
-
 
     public boolean voornaamCheck(String voornaam){
 
@@ -39,7 +37,6 @@ public class AccountValidation extends AccountCredentialsRepository {
         return true;
     }
 
-
     public boolean passwordValidation(String password){
 
         if(password == null || password.isEmpty() ){
@@ -54,7 +51,6 @@ public class AccountValidation extends AccountCredentialsRepository {
 
         return true;
     }
-
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
 
@@ -84,7 +80,4 @@ public class AccountValidation extends AccountCredentialsRepository {
 
         return true;
     }
-
-
-
 }
