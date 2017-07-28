@@ -1,5 +1,7 @@
 package account;
 
+import database.AddUserSql;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +23,14 @@ public class AccountCredentialsRepository {
             return null;
         }else {
             this.accountcredentials.put(emailadres, accountcredentails);
+            AddUserSql addUserSql = new AddUserSql();
+
+            try {
+                addUserSql.addUserIntoDatabase(voornaam, achternaam, straatnaam, huisnummer, postcode, password, emailadres);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
             return accountcredentails;
         }
     }
