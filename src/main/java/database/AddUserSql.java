@@ -11,7 +11,7 @@ public class AddUserSql extends ConnectionDatabase {
                     " '" + huisnummer + "'," +
                     " '" + postcode + "'," +
                     " '" + password + "'," +
-                    " '" + emailadres + " ')");
+                    " '" + emailadres + "')");
 
         connectionDatabase(SqlStatementDoorgeven);
     }

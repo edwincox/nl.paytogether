@@ -1,5 +1,7 @@
 package account;
 
+import database.GetUserSql;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -54,14 +56,30 @@ public class AccountValidation extends AccountCredentialsRepository {
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
 
-        AccountCredentials alreadyExitAccount = getAccountForUser(emailadresControle);
+        GetUserSql getUserSql = new GetUserSql();
+        System.out.println("emailadresAlreadyExists email adres ophalen: " + emailadresControle);
 
-        if (alreadyExitAccount != null) {
-            System.out.println("Username en emailadres zijn al bekend in ons systeem");
+        try {
+            boolean bestaatHetEmailAdresInDatabase = getUserSql.getUserAccountFromDatabase(emailadresControle);
+            if(bestaatHetEmailAdresInDatabase){
+                return false;
+            }else {
+                return true;
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
             return false;
         }
-        // }
-        return true;
+
+
+//        AccountCredentials alreadyExitAccount = getAccountForUser(emailadresControle);
+//
+//        if (alreadyExitAccount != null) {
+//            System.out.println("Username en emailadres zijn al bekend in ons systeem");
+//            return false;
+//        }
+//        // }
+//        return true;
     }
 
     public boolean usernameValadionCorrectEmailAdres(String emailadres){

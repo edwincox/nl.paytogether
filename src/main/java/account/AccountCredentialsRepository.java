@@ -1,6 +1,7 @@
 package account;
 
 import database.AddUserSql;
+import database.GetUserSql;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,9 +37,23 @@ public class AccountCredentialsRepository {
     }
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
-            AccountCredentials alreadyExitAccount = accountcredentials.get(emailadresControle);
+        AccountCredentials alreadyExitAccount = accountcredentials.get(emailadresControle);
 
-            if (alreadyExitAccount != null) {
+        GetUserSql getUserSql = new GetUserSql();
+        System.out.println("emailadresAlreadyExists email adres ophalen: " + emailadresControle);
+
+        try {
+            boolean bestaatHetEmailAdresInDatabase = getUserSql.getUserAccountFromDatabase(emailadresControle);
+            if(bestaatHetEmailAdresInDatabase){
+                return false;
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
+        if (alreadyExitAccount != null) {
                 System.out.println("Username en emailadres zijn al bekend in ons systeem");
                 return true;
             }
@@ -46,6 +61,20 @@ public class AccountCredentialsRepository {
     }
 
     public AccountCredentials getAccountForUser(String emailadresControle){
+        boolean antwoordTerugVanOfAccountAlBestaatOfNiet = false;
+
+        GetUserSql getUserSql = new GetUserSql();
+
+        System.out.println("Welk email adres gaan we get (ophalen): " + emailadresControle);
+        try {
+            boolean antwoordboolen = getUserSql.getUserAccountFromDatabase(emailadresControle);
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+
         return accountcredentials.get(emailadresControle);
     }
 
