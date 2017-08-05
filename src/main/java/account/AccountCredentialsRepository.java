@@ -1,7 +1,9 @@
 package account;
 
-import database.AddUserSql;
-import database.GetUserSql;
+import database.create.AddUserSql;
+import database.delete.DeleteUserSql;
+import database.read.EmailadresAlreadyExistsSql;
+import database.read.GetUserSql;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +25,7 @@ public class AccountCredentialsRepository {
             System.out.println("Kies een ander username + emailadres");
             return null;
         }else {
-            this.accountcredentials.put(emailadres, accountcredentails);
+
             AddUserSql addUserSql = new AddUserSql();
 
             try {
@@ -39,56 +41,61 @@ public class AccountCredentialsRepository {
     public boolean emailadresAlreadyExists(String emailadresControle) {
         AccountCredentials alreadyExitAccount = accountcredentials.get(emailadresControle);
 
-        GetUserSql getUserSql = new GetUserSql();
+        //GetUserSql getUserSql = new GetUserSql();
+        EmailadresAlreadyExistsSql emailadresAlreadyExists = new EmailadresAlreadyExistsSql();
         System.out.println("emailadresAlreadyExists email adres ophalen: " + emailadresControle);
 
-        try {
-            boolean bestaatHetEmailAdresInDatabase = getUserSql.getUserAccountFromDatabase(emailadresControle);
-            if(bestaatHetEmailAdresInDatabase){
+        AccountCredentials accountCredentials = null;
+
+            boolean watishet = emailadresAlreadyExists.checkIfEmailadresAlreadyExistsIntoDatabase(emailadresControle);
+            if (watishet = true) {
+                return true;
+            } else {
                 return false;
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
 
 
-        if (alreadyExitAccount != null) {
-                System.out.println("Username en emailadres zijn al bekend in ons systeem");
-                return true;
-            }
-        return false;
+//        if (alreadyExitAccount != null) {
+//                System.out.println("Username en emailadres zijn al bekend in ons systeem");
+//                return true;
+//            }
+//        return false;
     }
 
     public AccountCredentials getAccountForUser(String emailadresControle){
-        boolean antwoordTerugVanOfAccountAlBestaatOfNiet = false;
-
         GetUserSql getUserSql = new GetUserSql();
-
         System.out.println("Welk email adres gaan we get (ophalen): " + emailadresControle);
         try {
-            boolean antwoordboolen = getUserSql.getUserAccountFromDatabase(emailadresControle);
+            AccountCredentials accountCredentials = getUserSql.getUserAccountFromDatabase(emailadresControle);
 
+            return accountCredentials;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            return null;
         }
-
-
-
-        return accountcredentials.get(emailadresControle);
     }
 
     public boolean deleteAccountForUser(String emailadres){
-        AccountCredentials objectpakken = accountcredentials.remove(emailadres);
-        System.out.println("I have delete number: " + emailadres);
+        //AccountCredentials objectpakken = accountcredentials.remove(emailadres);
+        System.out.println("Account for user wil be delete with account: " + emailadres);
 
-        if(objectpakken == null || objectpakken !=null){
-            System.out.println("Er is een object aanwezig in de hashmap");
+        DeleteUserSql deleteUserSql = new DeleteUserSql();
+
+        boolean isAccountSuccevolDelete = deleteUserSql.deleteEmailAdresForUserWithEmailadres(emailadres);
+
+        if (isAccountSuccevolDelete = true){
             return true;
         }else{
-            System.out.println("Er zijn geen objecten meer in de hashmap");
             return false;
         }
+
+//        if(objectpakken == null || objectpakken !=null){
+//            System.out.println("Er is een object aanwezig in de hashmap");
+//            return true;
+//        }else{
+//            System.out.println("Er zijn geen objecten meer in de hashmap");
+//            return false;
+//        }
     }
 
     public int aantalAccountInDeList(){

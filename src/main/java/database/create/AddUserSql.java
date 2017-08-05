@@ -1,4 +1,6 @@
-package database;
+package database.create;
+
+import database.ConnectionDatabase;
 
 public class AddUserSql extends ConnectionDatabase {
 
@@ -12,7 +14,7 @@ public class AddUserSql extends ConnectionDatabase {
                     " '" + postcode + "'," +
                     " '" + password + "'," +
                     " '" + emailadres + "')");
-
-        connectionDatabase(SqlStatementDoorgeven);
+        boolean answerBackIfInsertWasSuccesOrNot = createInsertSqlIntoDatabase(SqlStatementDoorgeven);
+        System.out.println("Insert statement add user info database is: " + answerBackIfInsertWasSuccesOrNot);
     }
 }

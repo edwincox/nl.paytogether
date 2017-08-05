@@ -51,26 +51,11 @@ public class AccountValidationTest {
     }
 
     @Test
-    public void it_check_if_usernameEmail_addres_already_exist_then_give_false() throws Exception{
+    public void it_check_if_usernameEmail_addres_already_exist_in_database_it_will_not_exist_in_database() throws Exception{
         PayToGetherApplication makeNewUser = new PayToGetherApplication();
-        makeNewUser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678910", "edje_coxje@hotmail.com");
+        AccountCredentials accountCredentials = makeNewUser.getAccountForUser("emailnotexistindatabse@hotmail.com");
 
-        PayToGetherApplication makeuser2 = new PayToGetherApplication();
-        AccountCredentials makeaccount2 = makeuser2.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "12345678944", "edje_coxje@hotmail.com");
-        System.out.println("Uitkomst waarde: " + makeaccount2);
-        assertEquals(makeaccount2, null);
+        assertEquals(accountCredentials, null);
     }
 
-    @Test
-    public void test() throws Exception {
-        PayToGetherApplication makeNewUser = new PayToGetherApplication();
-        AccountCredentials tt = makeNewUser.createNewAccountForUser("EDWIN", "Cox", "Grutto", "14", "5801RG", "1234567891580", "edje_coxjevan@hotmail.com");
-
-        String emailadres = tt.getEmailadres();
-        boolean waardeterug = test.emailadresAlreadyExists(emailadres);
-
-        System.out.println(waardeterug);
-        assertThat(waardeterug, is(false));
-
-    }
 }

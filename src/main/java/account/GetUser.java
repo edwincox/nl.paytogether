@@ -20,9 +20,9 @@ public class GetUser extends HttpServlet {
 
         // Maak een person aan
         PayToGetherApplication makeuser = new PayToGetherApplication();
-        AccountCredentials person = makeuser.getAccountForUser(emailadres);
+        AccountCredentials accountCredentials = makeuser.getAccountForUser(emailadres);
 
-        if(person != null){
+        if(accountCredentials != null){
 
             PrintWriter out = response.getWriter();
 
@@ -40,12 +40,12 @@ public class GetUser extends HttpServlet {
                     "<body bgcolor=\"#f0f0f0\">\n" +
                     "<h1 align=\"center\">" + title + "</h1>\n" +
                     "<h2 align=\"center\"> "
-                    + "Voornaam: " + person.getVoornaam() + "<br><br>"
-                    + "Achternaam: " + person.getAchternaam() + "<br><br>"
-                    + "Straatnaam: " + person.getStraatnaam() + "<br><br>"
-                    + "Huisnummer: " + person.getHuisnummer() + "<br><br>"
-                    + "Postcode: " + person.getPostcode() + "<br><br>"
-                    + "Username: " + person.getEmailadres() + "<br><br>"
+                    + "Voornaam: " + accountCredentials.getVoornaam() + "<br><br>"
+                    + "Achternaam: " + accountCredentials.getAchternaam() + "<br><br>"
+                    + "Straatnaam: " + accountCredentials.getStraatnaam() + "<br><br>"
+                    + "Huisnummer: " + accountCredentials.getHuisnummer() + "<br><br>"
+                    + "Postcode: " + accountCredentials.getPostcode() + "<br><br>"
+                    + "Username: " + accountCredentials.getEmailadres() + "<br><br>"
                     + "<button type=\"button\" name=\"back one page\" onclick=\"history.back()\">back</button>"
                     + "</h2>\n" +
                     "</body></html>");

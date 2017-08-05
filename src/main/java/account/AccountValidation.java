@@ -1,6 +1,6 @@
 package account;
 
-import database.GetUserSql;
+import database.read.EmailadresAlreadyExistsSql;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -56,20 +56,26 @@ public class AccountValidation extends AccountCredentialsRepository {
 
     public boolean emailadresAlreadyExists(String emailadresControle) {
 
-        GetUserSql getUserSql = new GetUserSql();
+        EmailadresAlreadyExistsSql emailadresAlreadyExists = new EmailadresAlreadyExistsSql();
         System.out.println("emailadresAlreadyExists email adres ophalen: " + emailadresControle);
 
-        try {
-            boolean bestaatHetEmailAdresInDatabase = getUserSql.getUserAccountFromDatabase(emailadresControle);
-            if(bestaatHetEmailAdresInDatabase){
+//        GetUserSql getUserSql = new GetUserSql();
+//        System.out.println("emailadresAlreadyExists email adres ophalen: " + emailadresControle);
+
+        AccountCredentials accountCredentials = null;
+        boolean antwoordterug = emailadresAlreadyExists.checkIfEmailadresAlreadyExistsIntoDatabase(emailadresControle);
+
+        EmailadresAlreadyExistsSql emailadresAlreadyExistsSql = new EmailadresAlreadyExistsSql();
+        boolean ditantwoord = emailadresAlreadyExistsSql.checkIfEmailadresAlreadyExistsIntoDatabase(emailadresControle);
+
+        System.out.println("Debug antwoordterug: " + antwoordterug);
+        System.out.println("Debug antwoordterug ditantwoord: " + ditantwoord);
+
+            if (ditantwoord) {
                 return false;
-            }else {
+            } else {
                 return true;
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
 
 
 //        AccountCredentials alreadyExitAccount = getAccountForUser(emailadresControle);
