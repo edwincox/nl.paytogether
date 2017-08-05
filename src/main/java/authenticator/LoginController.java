@@ -1,6 +1,5 @@
 package authenticator;
 
-import account.AccountAlreadyExistException;
 import account.AccountCredentials;
 import account.PayToGetherApplication;
 
@@ -25,14 +24,6 @@ public class LoginController extends HttpServlet {
         String emailadres = request.getParameter("emailadres");
         String password = request.getParameter("password");
         RequestDispatcher rd = null;
-
-        if(emailadres == null ||password == null ){
-            try {
-                throw new AccountAlreadyExistException(emailadres);
-            } catch (AccountAlreadyExistException e) {
-                e.printStackTrace();
-            }
-        }
 
         // Class om controle uit te voeren
         Audit authenticator = new Audit();

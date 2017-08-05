@@ -15,7 +15,9 @@ public class PayToGetherApplication {
         return gegevens;
     }
 
+
     public boolean deleteAccountForUser(String emailadres){
+
         AccountCredentials opgehaaldAccount = repository.getAccountForUser(emailadres);
 
         if (opgehaaldAccount == null){
@@ -23,10 +25,11 @@ public class PayToGetherApplication {
             return false;
         }
 
-        boolean terug = repository.deleteAccountForUser(opgehaaldAccount.getEmailadres());
+        //boolean terug = repository.deleteAccountForUser(opgehaaldAccount.getEmailadres());
+        boolean terug = repository.deleteAccountForUser(emailadres);
 
         if (terug){
-            System.out.println("Account succesvol opgehaald");
+            System.out.println("Account succesvol verwijderd");
             return true;
         }
 
