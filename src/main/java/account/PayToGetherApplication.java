@@ -43,6 +43,19 @@ public class PayToGetherApplication {
         return false;
     }
 
+    public AccountCredentials changeAccountCredentials(String emailadres){
+        AccountCredentials accountCredentials = repository.changeAccountCredentials(emailadres);
+        return accountCredentials;
+    }
+
+    public AccountCredentials editAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer, String postcode, String emailadres){
+        AccountCredentials accountCredentials = repository.editAccountForUser(voornaam, achternaam, straatnaam, huisnummer, postcode, emailadres);
+
+        return null;
+    };
+
+
+
     public int getAantalAccount(){
         return repository.aantalAccountInDeList();
     }

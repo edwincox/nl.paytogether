@@ -71,4 +71,24 @@
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ShowEditUserCredentials</servlet-name>
+        <servlet-class>account.ShowEditUserCredentials</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ShowEditUserCredentials</servlet-name>
+        <url-pattern>/ShowEditUserCredentials</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>account.EditUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/EditUser</url-pattern>
+    </servlet-mapping>
+
 </web-app>

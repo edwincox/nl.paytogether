@@ -28,15 +28,13 @@ public class Main {
         }
 
 
-        // Delete emailadres
-//    boolean mailAdresVerwijderd = makeNewUser.deleteAccountForUser("mainrunner_edje_coxje@hotmail.com");
-//        System.out.println("Is het emailadrs verwijderd? : " +mailAdresVerwijderd);
-//        if(mailAdresVerwijderd = true) {
-//            System.out.println("Einde, er ging iets fout.");
-//        }
-
-
         makeNewUser.getAccountForUser("mainrunner_edje_coxje@hotmail.com");
+
+        makeNewUser.editAccountForUser("Nicolette", "Poepie", "vloeppie", "00", "7777zz", "mainrunner_edje_coxje@hotmail.com");
+
+
+
+
 //        AccountService accountService = new AccountService();
 //        PayToGetherApplication payToGetherApplication = accountService.addDefaultUser();
 //

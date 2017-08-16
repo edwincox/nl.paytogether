@@ -4,6 +4,7 @@ import database.create.AddUserSql;
 import database.delete.DeleteUserSql;
 import database.read.EmailadresAlreadyExistsSql;
 import database.read.GetUserSql;
+import database.update.EditUserSql;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,13 +54,6 @@ public class AccountCredentialsRepository {
             } else {
                 return false;
             }
-
-
-//        if (alreadyExitAccount != null) {
-//                System.out.println("Username en emailadres zijn al bekend in ons systeem");
-//                return true;
-//            }
-//        return false;
     }
 
     public AccountCredentials getAccountForUser(String emailadresControle){
@@ -88,14 +82,6 @@ public class AccountCredentialsRepository {
         }else{
             return false;
         }
-
-//        if(objectpakken == null || objectpakken !=null){
-//            System.out.println("Er is een object aanwezig in de hashmap");
-//            return true;
-//        }else{
-//            System.out.println("Er zijn geen objecten meer in de hashmap");
-//            return false;
-//        }
     }
 
     public int aantalAccountInDeList(){
@@ -107,4 +93,24 @@ public class AccountCredentialsRepository {
         return aantalAccountInDeList();
     }
 
+    public AccountCredentials changeAccountCredentials(String emailadres){
+        System.out.println("INFO: Van welk account gaan we de gegevens wijzingen: " + emailadres);
+
+        EditUserSql editUserSql = new EditUserSql();
+
+
+        return null;
+    }
+
+
+    public AccountCredentials editAccountForUser(String voornaam, String achternaam, String straatnaam, String huisnummer, String postcode, String emailadres) {
+        EditUserSql editUserSql = new EditUserSql();
+        boolean accountSuccsvolEdit = editUserSql.editUserAccountInDatabase(voornaam, achternaam, straatnaam, huisnummer, postcode, emailadres);
+
+        if(accountSuccsvolEdit){
+            return null;
+        }else {
+            return null;
+        }
+    }
 }
