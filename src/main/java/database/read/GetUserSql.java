@@ -8,7 +8,7 @@ import java.sql.*;
 public class GetUserSql implements ConfigConnectDatabase {
 
     public AccountCredentials getUserAccountFromDatabase(String getEmailadresForThisAccount) throws ClassNotFoundException{
-
+        forExterneConnectionConnector();
         String runSqlStatement=("select * from nawgegevens where emailadres = '" + getEmailadresForThisAccount + "'");
 
         try {
@@ -44,4 +44,10 @@ public class GetUserSql implements ConfigConnectDatabase {
             return null;
         }
     }
+
+    private void forExterneConnectionConnector() throws ClassNotFoundException{
+        Class.forName("org.sqlite.JDBC");
+    }
+
+
 }
